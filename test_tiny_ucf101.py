@@ -1,16 +1,16 @@
-_base_ = ['configs/recognition/tsn/_base_/models/tsn_r50.py', 'configs/recognition/tsn/_base_/default_runtime.py']
+_base_ = ['configs/_base_/models/tsn_r50.py', 'configs/_base_/default_runtime.py']
 
 # model settings
 model = dict(cls_head=dict(num_classes=101, init_std=0.001))
 
 # dataset settings
 dataset_type = 'RawframeDataset'
-data_root = 'datasets/ucf101/rawframes/'
-data_root_val = 'datasets/ucf101/rawframes/'
+data_root = '../datasets/ucf101/rawframes/'
+data_root_val = '../datasets/ucf101/rawframes/'
 split = 1  # official train/test splits. valid numbers: 1, 2, 3
-ann_file_train = f'datasets/ucf101/ucf101_train_split_{split}_rawframes.txt'
-ann_file_val = f'datasets/ucf101/ucf101_val_split_{split}_rawframes.txt'
-ann_file_test = f'datasets/ucf101/ucf101_val_split_{split}_rawframes.txt'
+ann_file_train = f'../datasets/ucf101/ucf101_train_split_{split}_rawframes.txt'
+ann_file_val = f'../datasets/ucf101/ucf101_val_split_{split}_rawframes.txt'
+ann_file_test = f'../datasets/ucf101/ucf101_val_split_{split}_rawframes.txt'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_bgr=False)
 train_pipeline = [
